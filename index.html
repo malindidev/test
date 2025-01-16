@@ -4,172 +4,233 @@
     <meta charset="UTF-8">
     <title>The Hack Pack - Ultimate Windows Command Toolkit</title>
     
-    <!-- Advanced Meta Tags -->
+    <!-- Comprehensive Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive Windows Command Prompt Mastery Guide">
+    <meta name="keywords" content="Windows commands, hacking toolkit, command prompt guide, system administration">
+    
+    <!-- SEO and Social Media -->
+    <meta property="og:title" content="The Hack Pack">
+    <meta property="og:description" content="Ultimate Windows Command Toolkit">
+    <meta property="og:image" content="preview-image.jpg">
     
     <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
-            --matrix-green: #00FF41;
-            --dark-background: #0a0a0a;
-            --terminal-text: #00FF41;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
         }
 
         body {
-            background-color: var(--dark-background);
-            color: var(--matrix-green);
-            font-family: 'Courier New', monospace;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f9;
         }
 
-        /* Matrix-style Background Animation */
-        @keyframes matrix-rain {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100vh); }
+        /* Advanced Product Showcase */
+        .product-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .matrix-background {
-            position: fixed;
+        .product-preview {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .product-preview:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Feature Sections */
+        .feature-icon {
+            font-size: 48px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonial Styling */
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Video Background */
+        .video-background {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            object-fit: cover;
+            opacity: 0.2;
             z-index: -1;
-            overflow: hidden;
-        }
-
-        .matrix-char {
-            position: absolute;
-            color: var(--matrix-green);
-            font-size: 16px;
-            animation: matrix-rain linear infinite;
-            opacity: 0.7;
-        }
-
-        /* Terminal-inspired Design */
-        .terminal-container {
-            background-color: rgba(0,0,0,0.9);
-            border: 2px solid var(--matrix-green);
-            box-shadow: 0 0 20px var(--matrix-green);
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .terminal-text {
-            color: var(--matrix-green);
-            text-shadow: 0 0 10px var(--matrix-green);
-        }
-
-        /* Advanced Hover and Interaction Effects */
-        .command-card {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-        }
-
-        .command-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0,255,65,0.5);
-        }
-
-        /* Glitch Text Effect */
-        @keyframes glitch {
-            2%, 64% { transform: translate(2px, 0) skew(0deg); }
-            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
-            62% { transform: translate(0, 0) skew(5deg); }
-        }
-
-        .glitch-text {
-            animation: glitch 1s linear infinite;
-        }
-
-        /* Scrolling Reveal Animations */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Matrix Background -->
-    <div class="matrix-background" id="matrix-background"></div>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand glitch-text" href="#">🖥️ THE HACK PACK</a>
-            <div class="d-flex">
-                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#downloadModal">
-                    Download PDF
-                </button>
+            <a class="navbar-brand" href="#">🖥️ THE HACK PACK</a>
+            <div class="navbar-nav ms-auto">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#purchase" class="btn btn-danger">Buy Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="container text-center py-5">
-        <div data-aos="fade-up">
-            <h1 class="display-4 terminal-text">Windows Command Mastery</h1>
-            <p class="lead terminal-text">Ultimate Command Prompt Toolkit</p>
+    <!-- Product Hero Section -->
+    <section class="product-hero text-center">
+        <video autoplay loop muted class="video-background">
+            <source src="tech-background.mp4" type="video/mp4">
+        </video>
+        <div class="container">
+            <h1 class="display-4 mb-4">The Hack Pack</h1>
+            <p class="lead mb-5">Ultimate Windows Command Prompt Mastery Guide</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <img src="product-preview.png" alt="Hack Pack Preview" class="img-fluid product-preview">
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Command Categories -->
-    <section class="container">
-        <div class="row">
-            <div class="col-md-4 mb-4" data-aos="slide-up">
-                <div class="card terminal-container command-card">
-                    <div class="card-body">
-                        <h3 class="terminal-text">Network Commands</h3>
-                        <p class="terminal-text">Advanced network diagnostics and management</p>
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What's Inside The Hack Pack</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-network-wired feature-icon"></i>
+                    <h3>Network Commands</h3>
+                    <p>Comprehensive network diagnostic techniques</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-server feature-icon"></i>
+                    <h3>System Administration</h3>
+                    <p>Advanced system configuration commands</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Security Techniques</h3>
+                    <p>Ethical penetration testing methods</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Choose Your Package</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pricing-card text-center">
+                        <h3>Basic Pack</h3>
+                        <h4 class="text-primary">$29.99</h4>
+                        <ul class="list-unstyled">
+                            <li>Basic Command Guide</li>
+                            <li>30-Day Updates</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <button class="btn btn-primary mt-3">Select Basic</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-card text-center">
+                        <h3>Pro Pack</h3>
+                        <h4 class="text-primary">$49.99</h4>
+                        <ul class="list-unstyled">
+                            <li>Advanced Command Techniques</li>
+                            <li>Lifetime Updates</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <button class="btn btn-primary mt-3">Select Pro</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-card text-center">
+                        <h3>Enterprise Pack</h3>
+                        <h4 class="text-primary">$99.99</h4>
+                        <ul class="list-unstyled">
+                            <li>Complete Command Toolkit</li>
+                            <li>Personal Consultation</li>
+                            <li>24/7 Advanced Support</li>
+                        </ul>
+                        <button class="btn btn-primary mt-3">Select Enterprise</button>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-md-4 mb-4" data-aos="slide-up" data-aos-delay="200">
-                <div class="card terminal-container command-card">
-                    <div class="card-body">
-                        <h3 class="terminal-text">System Commands</h3>
-                        <p class="terminal-text">Deep system configuration and control</p>
+        </ div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"The Hack Pack transformed my understanding of command prompts! Highly recommend!"</p>
+                        <p class="text-muted">- Alex J.</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4 mb-4" data-aos="slide-up" data-aos-delay="400">
-                <div class="card terminal-container command-card">
-                    <div class="card-body">
-                        <h3 class="terminal-text">Hacking Techniques</h3>
-                        <p class="terminal-text">Ethical penetration testing methods</p>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"A must-have toolkit for anyone serious about system administration!"</p>
+                        <p class="text-muted">- Jamie L.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Incredible value for the price. The support team is also very responsive!"</p>
+                        <p class="text-muted">- Sam R.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Modal -->
-    <div class="modal fade" id="downloadModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content terminal-container">
-                <div class="modal-header">
-                    <h5 class="modal-title terminal-text">Download The Hack Pack</h5>
-                </div>
-                <div class="modal-body">
-                    <p class="terminal-text">Secure PDF Download</p>
-                    <button class="btn btn-success w-100">Download Now</button>
-                </div>
-            </div>
+    <!-- Purchase Section -->
+    <section id="purchase" class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-5">Ready to Master Windows Commands?</h2>
+            <button class="btn btn-danger btn-lg">Buy The Hack Pack Now</button>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2023 The Hack Pack. All rights reserved.</p>
+        <p><a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a></p>
+    </footer>
 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -178,30 +239,6 @@
     <script>
         // Initialize AOS (Animate on Scroll)
         AOS.init();
-
-        // Matrix Background Generation
-        function createMatrixBackground() {
-            const background = document.getElementById('matrix-background');
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-            
-            for (let i = 0; i < 100; i++) {
-                const char = document.createElement('div');
-                char.classList.add('matrix-char');
-                char.style.left = `${Math.random() * 100}%`;
-                char.style.animationDuration = `${Math.random() * 10 + 5}s`;
-                char.style.opacity = Math.random();
-                char.textContent = chars[Math.floor(Math.random() * chars.length)];
-                background.appendChild(char);
-            }
-        }
-
-        createMatrixBackground();
-
-        // Download Functionality
-        document.querySelector('#downloadModal .btn-success').addEventListener('click', () => {
-            // Simulated secure download
-            window.location.href = 'the-hack- pack.pdf';
-        });
     </script>
 </body>
 </html>
