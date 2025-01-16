@@ -6,13 +6,6 @@
     
     <!-- Comprehensive Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Comprehensive Windows Command Prompt Mastery Guide">
-    <meta name="keywords" content="Windows commands, hacking toolkit, command prompt guide, system administration">
-    
-    <!-- SEO and Social Media -->
-    <meta property="og:title" content="The Hack Pack">
-    <meta property="og:description" content="Ultimate Windows Command Toolkit">
-    <meta property="og:image" content="preview-image.jpg">
     
     <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,197 +14,183 @@
     
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0f3460;
+            --neon-color: #e94560;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f6f9;
+            background-color: var(--primary-color);
+            color: white;
+            overflow-x: hidden;
         }
 
-        /* Advanced Product Showcase */
-        .product-hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 100px 0;
+        /* Advanced Scroll Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-element {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Ultimate Pack Section */
+        .ultimate-pack {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 20px;
+            padding: 50px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
         }
 
-        .product-preview {
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .product-preview:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-
-        /* Pricing Cards */
-        .pricing-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        /* Feature Sections */
-        .feature-icon {
-            font-size: 48px;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        /* Testimonial Styling */
-        .testimonial-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-
-        /* Responsive Video Background */
-        .video-background {
+        .ultimate-pack::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233,69,96,0.2) 0%, transparent 70%);
+            animation: pulse 5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .price-tag {
+            font-size: 4rem;
+            color: var(--neon-color);
+            text-shadow: 0 0 20px rgba(233,69,96,0.5);
+        }
+
+        /* Interactive Elements */
+        .interactive-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        .interactive-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+        }
+
+        /* Cyberpunk Glitch Effect */
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px, 0) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+            62% { transform: translate(0, 0) skew(5deg); }
+        }
+
+        .glitch-text {
+            animation: glitch 1s linear infinite;
+        }
+
+        /* Background Particle Effect */
+        #particles-js {
+            position: fixed;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            opacity: 0.2;
             z-index: -1;
         }
     </style>
 </head>
 <body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-transparent position-absolute w-100">
         <div class="container">
-            <a class="navbar-brand" href="#">🖥️ THE HACK PACK</a>
+            <a class="navbar-brand glitch-text" href="#">🖥️ THE HACK PACK</a>
             <div class="navbar-nav ms-auto">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#features" class="nav-link text-white">Features</a>
+                <a href="#ultimate" class="nav-link text-white">Ultimate Pack</a>
                 <a href="#purchase" class="btn btn-danger">Buy Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- Product Hero Section -->
-    <section class="product-hero text-center">
-        <video autoplay loop muted class="video-background">
-            <source src="tech-background.mp4" type="video/mp4">
-        </video>
+    <!-- Hero Section -->
+    <header class="vh-100 d-flex align-items-center" style="background-color: rgba(0,0,0,0.7);">
+        <div class="container text-center">
+            <div data-aos="fade-up">
+                <h1 class="display-3 mb-4 text-white">The Hack Pack</h1>
+                <p class="lead mb-5 text-white">Ultimate Windows Command Mastery Toolkit</p>
+                <a href="#ultimate" class="btn btn-lg btn-danger">Explore Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ultimate Pack Section -->
+    <section id="ultimate" class="py-5">
         <div class="container">
-            <h1 class="display-4 mb-4">The Hack Pack</h1>
-            <p class="lead mb-5">Ultimate Windows Command Prompt Mastery Guide</p>
-            
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <img src="product-preview.png" alt="Hack Pack Preview" class="img-fluid product-preview">
+                    <div class="ultimate-pack text-center floating-element" data-aos="zoom-in">
+                        <h2 class="mb-4 text-white">The ULTIMATE Hack Pack</h2>
+                        <div class="price-tag mb-4">£14.99</div>
+                        <p class="lead mb-4">Limited Edition - Only 1 Available!</p>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="bg-dark p-3 rounded interactive-card">
+                                    <i class="fas fa-network-wired text-danger mb-2"></i>
+                                    <p>Network Mastery</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="bg-dark p-3 rounded interactive-card">
+                                    <i class="fas fa-shield-alt text-danger mb-2"></i>
+                                    <p>Security Techniques</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="bg-dark p-3 rounded interactive-card">
+                                    <i class="fas fa-code text-danger mb-2"></i>
+                                    <p>Advanced Commands</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-danger btn-lg mt-4">Claim Your Pack Now!</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">What's Inside The Hack Pack</h2>
+    <!-- Bonus Features Section -->
+    <section class="py-5 bg-dark">
+        <div class="container text-center">
+            <h2 class="mb-5 text-white">Exclusive Bonus Features</h2>
             <div class="row">
-                <div class="col-md-4 text-center mb-4">
-                    <i class="fas fa-network-wired feature-icon"></i>
-                    <h3>Network Commands</h3>
-                    <p>Comprehensive network diagnostic techniques</p>
-                </div>
-                <div class="col-md-4 text-center mb-4">
-                    <i class="fas fa-server feature-icon"></i>
-                    <h3>System Administration</h3>
-                    <p>Advanced system configuration commands</p>
-                </div>
-                <div class="col-md-4 text-center mb-4">
-                    <i class="fas fa-shield-alt feature-icon"></i>
-                    <h3>Security Techniques</h3>
-                    <p>Ethical penetration testing methods</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Choose Your Package</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="pricing-card text-center">
-                        <h3>Basic Pack</h3>
-                        <h4 class="text-primary">$29.99</h4>
-                        <ul class="list-unstyled">
-                            <li>Basic Command Guide</li>
-                            <li>30-Day Updates</li>
-                            <li>Email Support</li>
-                        </ul>
-                        <button class="btn btn-primary mt-3">Select Basic</button>
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="bg-secondary p-4 rounded mb-3">
+                        <i class="fas fa-video text-warning fa-3x mb-3"></i>
+                        <h4 class="text-white">Video Tutorials</h4>
+                        <p>In-depth video guides</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="pricing-card text-center">
-                        <h3>Pro Pack</h3>
-                        <h4 class="text-primary">$49.99</h4>
-                        <ul class="list-unstyled">
-                            <li>Advanced Command Techniques</li>
-                            <li>Lifetime Updates</li>
-                            <li>Priority Support</li>
-                        </ul>
-                        <button class="btn btn-primary mt-3">Select Pro</button>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="bg-secondary p-4 rounded mb-3">
+                        <i class="fas fa- book text-warning fa-3x mb-3"></i>
+                        <h4 class="text-white">E-Book Access</h4>
+                        <p>Downloadable PDF guide</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="pricing-card text-center">
-                        <h3>Enterprise Pack</h3>
-                        <h4 class="text-primary">$99.99</h4>
-                        <ul class="list-unstyled">
-                            <li>Complete Command Toolkit</li>
-                            <li>Personal Consultation</li>
-                            <li>24/7 Advanced Support</li>
-                        </ul>
-                        <button class="btn btn-primary mt-3">Select Enterprise</button>
-                    </div>
-                </div>
-            </div>
-        </ div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">What Our Customers Say</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p>"The Hack Pack transformed my understanding of command prompts! Highly recommend!"</p>
-                        <p class="text-muted">- Alex J.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p>"A must-have toolkit for anyone serious about system administration!"</p>
-                        <p class="text-muted">- Jamie L.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p>"Incredible value for the price. The support team is also very responsive!"</p>
-                        <p class="text-muted">- Sam R.</p>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="bg-secondary p-4 rounded mb-3">
+                        <i class="fas fa-headset text-warning fa-3x mb-3"></i>
+                        <h4 class="text-white">24/7 Support</h4>
+                        <p>Get help anytime you need</p>
                     </div>
                 </div>
             </div>
@@ -222,7 +201,7 @@
     <section id="purchase" class="py-5 text-center">
         <div class="container">
             <h2 class="mb-5">Ready to Master Windows Commands?</h2>
-            <button class="btn btn-danger btn-lg">Buy The Hack Pack Now</button>
+            <button class="btn btn-danger btn-lg">Buy The Ultimate Hack Pack Now</button>
         </div>
     </section>
 
@@ -235,10 +214,67 @@
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <script src="particles.js"></script>
     <script>
         // Initialize AOS (Animate on Scroll)
         AOS.init();
+
+        // Particles.js configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: {
+                    type: "circle",
+                    stroke: { width: 0, color: "#000000" },
+                    polygon: { nb_sides: 5 },
+                    image: { src: "img/github.svg", width: 100, height: 100 }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: { enable: false, rotateX: 600, rotateY: 1200 }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 400, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 }
+                }
+            },
+            retina_detect: true
+        });
     </script>
 </body>
 </html>
