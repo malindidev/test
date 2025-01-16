@@ -2,208 +2,205 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Hack Pack - Ultimate Cybersecurity Toolkit</title>
+    <title>The Hack Pack - Ultimate Windows Command Toolkit</title>
     
-    <!-- Meta Tags -->
+    <!-- Advanced Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Advanced Cybersecurity and Ethical Hacking Comprehensive Guide">
-    <meta name="keywords" content="hacking, cybersecurity, network security, ethical hacking">
     
     <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/animate.css/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Custom Advanced Styling -->
     <style>
         :root {
-            --primary-color: #0f0c29;
-            --secondary-color: #302b63;
-            --accent-color: #24243e;
-            --neon-color: #0073e6;
+            --matrix-green: #00FF41;
+            --dark-background: #0a0a0a;
+            --terminal-text: #00FF41;
         }
 
-        /* Advanced Gradient Background */
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Orbitron', 'Arial', sans-serif;
-            background: linear-gradient(
-                135deg, 
-                var(--primary-color), 
-                var(--secondary-color), 
-                var(--accent-color)
-            );
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #fff;
+        body {
+            background-color: var(--dark-background);
+            color: var(--matrix-green);
+            font-family: 'Courier New', monospace;
             overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Matrix-style Background Animation */
+        @keyframes matrix-rain {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
         }
 
-        /* Advanced Holographic Effects */
-        .holographic-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 15px;
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        .matrix-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
         }
 
-        .holographic-card:hover {
-            transform: scale(1.05) rotateX(10deg) rotateY(10deg);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        .matrix-char {
+            position: absolute;
+            color: var(--matrix-green);
+            font-size: 16px;
+            animation: matrix-rain linear infinite;
+            opacity: 0.7;
         }
 
-        /* Cyberpunk Neon Text Effects */
-        .cyber-text {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 15px var(--neon-color),
-                0 0 20px var(--neon-color),
-                0 0 25px var(--neon-color);
-            animation: textFlicker 1.5s infinite alternate;
+        /* Terminal-inspired Design */
+        .terminal-container {
+            background-color: rgba(0,0,0,0.9);
+            border: 2px solid var(--matrix-green);
+            box-shadow: 0 0 20px var(--matrix-green);
+            padding: 20px;
+            margin: 20px 0;
         }
 
-        @keyframes textFlicker {
-            0% { opacity: 0.7; text-shadow: 0 0 10px var(--neon-color); }
-            100% { opacity: 1; text-shadow: 0 0 20px var(--neon-color); }
+        .terminal-text {
+            color: var(--matrix-green);
+            text-shadow: 0 0 10px var(--matrix-green);
         }
 
-        /* Interactive Elements */
-        .interactive-element {
-            transition: all 0.3s ease;
+        /* Advanced Hover and Interaction Effects */
+        .command-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
         }
 
-        .interactive-element:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+        .command-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,255,65,0.5);
         }
 
-        /* Particle Background Container */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        /* Glitch Text Effect */
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px, 0) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+            62% { transform: translate(0, 0) skew(5deg); }
         }
 
-        /* Responsive Video Background */
-        .video-background {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -2;
-            opacity: 0.3;
+        .glitch-text {
+            animation: glitch 1s linear infinite;
         }
 
-        /* Advanced Modal Styling */
-        .modal-cyberpunk {
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
+        /* Scrolling Reveal Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Particle.js Background -->
-    <div id="particles-js"></div>
-
-    <!-- Optional Video Background -->
-    <video autoplay loop muted class="video-background">
-        <source src="cyberpunk-background.mp4" type="video/mp4">
-    </video>
+    <!-- Matrix Background -->
+    <div class="matrix-background" id="matrix-background"></div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand cyber-text" href="#">🔒 THE HACK PACK</a>
-            <div class="navbar-nav ms-auto">
-                <a href="#features" class="nav-link interactive-element">Features</a>
-                <a href="#pricing" class="nav-link interactive-element">Pricing</a>
-                <a href="#purchase" class="btn btn-outline-light interactive-element">Buy Now</a>
+            <a class="navbar-brand glitch-text" href="#">🖥️ THE HACK PACK</a>
+            <div class="d-flex">
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#downloadModal">
+                    Download PDF
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="container text-center py-5">
-        <h1 class="display-3 cyber-text animate__animated animate__fadeInDown">
-            THE HACK PACK
-        </h1>
-        <p class="lead animate__animated animate__fadeInUp">
-            Ultimate Cybersecurity & Ethical Hacking Toolkit
-        </p>
+        <div data-aos="fade-up">
+            <h1 class="display-4 terminal-text">Windows Command Mastery</h1>
+            <p class="lead terminal-text">Ultimate Command Prompt Toolkit</p>
+        </div>
     </header>
 
-    <!-- Features Section -->
+    <!-- Command Categories -->
     <section class="container">
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="holographic-card p-4 text-center interactive-element">
-                    <i class="fas fa-network-wired fa-3x mb-3 text-light"></i>
-                    <h3>Network Penetration</h3>
-                    <p>Advanced vulnerability detection techniques</p>
+            <div class="col-md-4 mb-4" data-aos="slide-up">
+                <div class="card terminal-container command-card">
+                    <div class="card-body">
+                        <h3 class="terminal-text">Network Commands</h3>
+                        <p class="terminal-text">Advanced network diagnostics and management</p>
+                    </div>
                 </div>
             </div>
-            <!-- More feature cards... -->
+            
+            <div class="col-md-4 mb-4" data-aos="slide-up" data-aos-delay="200">
+                <div class="card terminal-container command-card">
+                    <div class="card-body">
+                        <h3 class="terminal-text">System Commands</h3>
+                        <p class="terminal-text">Deep system configuration and control</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4" data-aos="slide-up" data-aos-delay="400">
+                <div class="card terminal-container command-card">
+                    <div class="card-body">
+                        <h3 class="terminal-text">Hacking Techniques</h3>
+                        <p class="terminal-text">Ethical penetration testing methods</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="container pricing-section">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="holographic-card p-4 text-center interactive-element">
-                    <h2>Basic Pack</h2>
-                    <h3>$29.99</h3>
-                    <!-- Pricing details -->
+    <!-- Download Modal -->
+    <div class="modal fade" id="downloadModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content terminal-container">
+                <div class="modal-header">
+                    <h5 class="modal-title terminal-text">Download The Hack Pack</h5>
                 </div>
-            </div>
-            <!-- More pricing tiers -->
-        </div>
-    </section>
-
-    <!-- Purchase Modal -->
-    <div class="modal fade" id="purchaseModal" tabindex="-1">
-        <div class="modal-dialog modal-cyberpunk">
-            <div class="modal-content bg-transparent">
-                <!-- Purchase form with advanced validation -->
+                <div class="modal-body">
+                    <p class="terminal-text">Secure PDF Download</p>
+                    <button class="btn btn-success w-100">Download Now</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-center py-4">
-        <div class="container">
-            <p class="cyber-text">© 2023 THE HACK PACK | All Rights Reserved</p>
-        </div>
-    </footer>
-
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    
-    <script>
-        // Particle.js Configuration
-        particlesJS .load('particles-js', 'particles.json', function() {
-            console.log('Particles.js loaded - background animation');
-        });
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-        // Modal functionality
-        const purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
-        document.querySelector('.btn-outline-light').addEventListener('click', function() {
-            purchaseModal.show();
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init();
+
+        // Matrix Background Generation
+        function createMatrixBackground() {
+            const background = document.getElementById('matrix-background');
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+            
+            for (let i = 0; i < 100; i++) {
+                const char = document.createElement('div');
+                char.classList.add('matrix-char');
+                char.style.left = `${Math.random() * 100}%`;
+                char.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                char.style.opacity = Math.random();
+                char.textContent = chars[Math.floor(Math.random() * chars.length)];
+                background.appendChild(char);
+            }
+        }
+
+        createMatrixBackground();
+
+        // Download Functionality
+        document.querySelector('#downloadModal .btn-success').addEventListener('click', () => {
+            // Simulated secure download
+            window.location.href = 'the-hack- pack.pdf';
         });
     </script>
 </body>
