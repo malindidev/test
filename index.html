@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Hack Pack - Ultimate Windows Command Toolkit</title>
+    <title>The Hack Pack - Ultimate Windows Command Mastery</title>
     
     <!-- Comprehensive Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +14,15 @@
     
     <style>
         :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #16213e;
-            --accent-color: #0f3460;
-            --neon-color: #e94560;
+            --primary-dark: #0f0c29;
+            --secondary-dark: #302b63;
+            --accent-color: #24243e;
+            --neon-highlight: #0073e6;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
             color: white;
             overflow-x: hidden;
         }
@@ -38,67 +38,66 @@
             animation: float 4s ease-in-out infinite;
         }
 
-        /* Ultimate Pack Section */
-        .ultimate-pack {
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-            border-radius: 20px;
-            padding: 50px;
+        /* Comprehensive Section Styles */
+        .section-header {
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-            transition: all 0.5s ease;
+            padding: 100px 0;
+            background: rgba(0,0,0,0.5);
+            border-bottom: 2px solid var(--neon-highlight);
         }
 
-        .ultimate-pack::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(233,69,96,0.2) 0%, transparent 70%);
-            animation: pulse 5s infinite alternate;
+        .command-category {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .price-tag {
-            font-size: 4rem;
-            color: var(--neon-color);
-            text-shadow: 0 0 20px rgba(233,69,96,0.5);
-        }
-
-        /* Interactive Elements */
-        .interactive-card {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-        }
-
-        .interactive-card:hover {
+        .command-category:hover {
             transform: scale(1.05);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+            box-shadow: 0 0 30px rgba(0,115,230,0.5);
         }
 
-        /* Cyberpunk Glitch Effect */
-        @keyframes glitch {
-            2%, 64% { transform: translate(2px, 0) skew(0deg); }
-            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
-            62% { transform: translate(0, 0) skew(5deg); }
+        /* Pricing Expanded */
+        .pricing-tier {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--neon-highlight);
+            border-radius: 15px;
+            padding: 40px;
+            transition: all 0.3s ease;
         }
 
-        .glitch-text {
-            animation: glitch 1s linear infinite;
+        .pricing-tier:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 0 50px rgba(0,115,230,0.3);
         }
 
-        /* Background Particle Effect */
+        /* Extensive Command Breakdown */
+        .command-breakdown {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Neon Glow Effects */
+        .neon-text {
+            color: var(--neon-highlight);
+            text-shadow: 
+                0 0 5px var(--neon-highlight),
+                0 0 10px var(--neon-highlight),
+                0 0 15px var(--neon-highlight);
+        }
+
+        /* Particle Background */
         #particles-js {
             position: fixed;
             width: 100%;
             height: 100%;
             z-index: -1;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
@@ -107,90 +106,183 @@
     <div id="particles-js"></div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-dark bg-transparent position-absolute w-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100" style="z-index: 1000;">
         <div class="container">
-            <a class="navbar-brand glitch-text" href="#">🖥️ THE HACK PACK</a>
+            <a class="navbar-brand" href="#">🖥️ THE HACK PACK</a>
             <div class="navbar-nav ms-auto">
-                <a href="#features" class="nav-link text-white">Features</a>
-                <a href="#ultimate" class="nav-link text-white">Ultimate Pack</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#command-categories" class="nav-link">Command Categories</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
                 <a href="#purchase" class="btn btn-danger">Buy Now</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="vh-100 d-flex align-items-center" style="background-color: rgba(0,0,0,0.7);">
-        <div class="container text-center">
-            <div data-aos="fade-up">
-                <h1 class="display-3 mb-4 text-white">The Hack Pack</h1>
-                <p class="lead mb-5 text-white">Ultimate Windows Command Mastery Toolkit</p>
-                <a href="#ultimate" class="btn btn-lg btn-danger">Explore Now</a>
-            </div>
+    <header class="section-header text-center pt-5" style="margin-top: 70px;">
+        <div class="container">
+            <h1 class="display-3 neon-text mb-4">The Hack Pack</h1>
+            <p class="lead mb-5">Comprehensive Windows Command Mastery Toolkit</p>
+            <a href="#features" class="btn btn-lg btn-outline-light">Explore Toolkit</a>
         </div>
     </header>
 
-    <!-- Ultimate Pack Section -->
-    <section id="ultimate" class="py-5">
+    <!-- Features Section -->
+    <section id="features" class="section-header">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="ultimate-pack text-center floating-element" data-aos="zoom-in">
-                        <h2 class="mb-4 text-white">The ULTIMATE Hack Pack</h2>
-                        <div class="price-tag mb-4">£14.99</div>
-                        <p class="lead mb-4">Get it before you lose it!</p>
-                        
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <div class="bg-dark p-3 rounded interactive-card">
-                                    <i class="fas fa-network-wired text-danger mb-2"></i>
-                                    <p>Network Mastery</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="bg-dark p-3 rounded interactive-card">
-                                    <i class="fas fa-shield-alt text-danger mb-2"></i>
-                                    <p>Security Techniques</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="bg-dark p-3 rounded interactive-card">
-                                    <i class="fas fa-code text-danger mb-2"></i>
-                                    <p>Advanced Commands</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="btn btn-danger btn-lg mt-4">Claim Your Pack Now!</button>
+            <h2 class="text-center mb-5 neon-text">Toolkit Features</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="command-category text-center">
+                        <i class="fas fa-network-wired fa-3x mb-3 neon-text"></i>
+                        <h3>Network Mastery</h3>
+                        <p>Advanced network diagnostic and management commands</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="command-category text-center">
+                        <i class="fas fa-server fa-3x mb-3 neon-text"></i>
+                        <h3>System Administration</h3>
+                        <p>Comprehensive system configuration and management</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="command-category text-center">
+                        <i class="fas fa-shield-alt fa-3x mb-3 neon-text"></i>
+                        <h3>Security Techniques</h3>
+                        <p>Ethical penetration and security analysis methods</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bonus Features Section -->
-    <section class="py-5 bg-dark">
-        <div class="container text-center">
-            <h2 class="mb-5 text-white">Exclusive Bonus Features</h2>
+    <!-- Comprehensive Command Categories -->
+    <section id="command-categories" class="section-header">
+        <div class="container">
+            <h2 class="text-center mb-5 neon-text">Extensive Command Breakdown</h2>
+            
+            <div class="command-breakdown">
+                <h3 class="mb-4">Network Commands</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>ipconfig</li>
+                            <li>ping</li>
+                            <li>tracert</li>
+                            <li>netstat</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>nslookup</li>
+                            <li>arp</li>
+                            <li>route</li>
+                            <li>netsh</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>pathping</li>
+                            <li>nbtstat</li>
+                            <li>netview</li>
+                            <li>telnet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar breakdowns for other command categories -->
+         ```html
+            <div class="command-breakdown mt-4">
+                <h3 class="mb-4">System Commands</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>tasklist</li>
+                            <li>taskkill</li>
+                            <li>shutdown</li>
+                            <li>systeminfo</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>chkdsk</li>
+                            <li>sfc /scannow</li>
+                            <li>diskpart</li>
+                            <li>format</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>defrag</li>
+                            <li>wmic</li>
+                            <li>powercfg</li>
+                            <li>whoami</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="command-breakdown mt-4">
+                <h3 class="mb-4">Security Commands</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>net user</li>
+                            <li>net localgroup</li>
+                            <li>gpupdate</li>
+                            <li>secedit</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>netsh advfirewall</li>
+                            <li>cipher</li>
+                            <li>icacls</li>
+                            <li>fsutil</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li>netstat -an</li>
+                            <li>Get-EventLog</li>
+                            <li>Get-Process</li>
+                            <li>Get-Service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-header">
+        <div class="container">
+            <h2 class="text-center mb-5 neon-text">Flexible Pricing Options</h2>
             <div class="row">
-                <div class="col-md-4" data-aos="fade-right">
-                    <div class="bg-secondary p-4 rounded mb-3">
-                        <i class="fas fa-video text-warning fa-3x mb-3"></i>
-                        <h4 class="text-white">Video Tutorials</h4>
-                        <p>In-depth video guides</p>
+                <div class="col-md-4">
+                    <div class="pricing-tier text-center p-4">
+                        <h3>Basic Access</h3>
+                        <p class="lead">£9.99</p>
+                        <p>Access to basic commands and features.</p>
+                        <button class="btn btn-outline-light">Select Plan</button>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="bg-secondary p-4 rounded mb-3">
-                        <i class="fas fa- book text-warning fa-3x mb-3"></i>
-                        <h4 class="text-white">E-Book Access</h4>
-                        <p>Downloadable PDF guide</p>
+                <div class="col-md-4">
+                    <div class="pricing-tier text-center p-4">
+                        <h3>Standard Access</h3>
+                        <p class="lead">£14.99</p>
+                        <p>Includes all basic features plus additional commands.</p>
+                        <button class="btn btn-outline-light">Select Plan</button>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-left">
-                    <div class="bg-secondary p-4 rounded mb-3">
-                        <i class="fas fa-headset text-warning fa-3x mb-3"></i>
-                        <h4 class="text-white">24/7 Support</h4>
-                        <p>Get help anytime you need</p>
+                <div class="col-md-4">
+                    <div class="pricing-tier text-center p-4">
+                        <h3>Ultimate Access</h3>
+                        <p class="lead">£19.99</p>
+                        <p>Full access to all commands, features, and support.</p>
+                        <button class="btn btn-outline-light">Select Plan</button>
                     </div>
                 </div>
             </div>
@@ -198,22 +290,22 @@
     </section>
 
     <!-- Purchase Section -->
-    <section id="purchase" class="py-5 text-center">
+    <section id="purchase" class="section-header text-center">
         <div class="container">
-            <h2 class="mb-5">Ready to Master Windows Commands?</h2>
+            <h2 class="mb-5 neon-text">Ready to Master Windows Commands?</h2>
             <button class="btn btn-danger btn-lg">Buy The Ultimate Hack Pack Now</button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
-        <p>&copy; 2025 The Hack Pack. All rights reserved.</p>
+        <p>&copy; 2023 The Hack Pack. All rights reserved.</p>
         <p><a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a></p>
     </footer>
 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https:// unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="particles.js"></script>
     <script>
         // Initialize AOS (Animate on Scroll)
