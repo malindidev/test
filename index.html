@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows Command Mastery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Advanced CSS Reset and Base Styles */
         :root {
             --primary-color: #0078D7;
             --secondary-color: #00A4EF;
@@ -18,74 +18,116 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            background-color: var(--background-color);
+            background: linear-gradient(135deg, var(--background-color), #E6E9F0);
             color: var(--text-color);
-            perspective: 1000px;
+            overflow-x: hidden;
         }
 
+        /* Advanced Layout and Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Advanced Header */
-        .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
+            padding: 0 20px;
             position: relative;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-            transform-style: preserve-3d;
-            transform: rotateX(10deg) scale(0.9);
-            transition: all 0.5s ease;
         }
 
-        .header:hover {
-            transform: rotateX(0) scale(1);
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-background {
-            position: absolute;
+        /* Animated Gradient Background */
+        .gradient-background {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(255,255,255,0.1),
-                rgba(255,255,255,0.1) 10px,
-                transparent 10px,
-                transparent 20px
+            background: linear-gradient(
+                -45deg, 
+                var(--primary-color), 
+                var(--secondary-color), 
+                #6A11CB, 
+                #2575FC
             );
-            opacity: 0.3;
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            opacity: 0.1;
+            z-index: -1;
         }
 
-        /* Animated CTA Button */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Product Section */
+        .product-section {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            gap: 50px;
+            perspective: 1000px;
+        }
+
+        .product-image {
+            flex: 1;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            transform: translateZ(50px);
+        }
+
+        .product-details {
+            flex: 1;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateZ(30px);
+        }
+
+        /* Interactive Price Display */
+        .price-display {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .discount-badge {
+            background-color: #FF6B6B;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        /* Advanced Button Styles */
         .cta-button {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: black;
             padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,93,0.1);
         }
 
         .cta-button::before {
@@ -103,196 +145,103 @@
             left: 100%;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+        /* Feature Animations */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        /* Interactive Sections */
-        .section {
-            background: white;
-            margin: 30px 0;
+        .feature-item {
+            background: rgba(255,255,255,0.6);
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(50,50,93,0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
+            text-align: center;
+            transition: all 0.4s ease;
         }
 
-        .section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(50,50,93,0.2);
-        }
-
-        /* Testimonial Carousel */
-        .testimonials {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 20px;
-        }
-
-        .testimonial {
-            flex: 0 0 auto;
-            width: 300px;
-            margin-right: 20px;
-            scroll-snap-align: start;
-            background: #f4f4f4;
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial:hover {
-            transform: scale(1.05);
-        }
-
-        /* Interactive FAQ */
-        .faq-item {
-            cursor: pointer;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            background-color: #f9f9f9;
-        }
-
-        .faq-answer {
-            display: none;
-            padding: 15px;
-            background-color: #f4f4f4;
+        .feature-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header {
-                clip-path: none;
-                transform: none;
+            .product-section {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-background"></div>
-        <div class="container header-content">
-            <h1>🖥️ Windows Command Mastery</h1>
-            <h2>Unlock the Secret Powers of Your Windows PC</h2>
-            <a href="#purchase" class="cta-button">Buy Now - £14.99</a>
-        </div>
-    </div>
-
+    <div class="gradient-background"></div>
+    
     <div class="container">
-        <!-- Interactive Features Section -->
-        <div class="section features">
-            <h2>🔥 What You'll Get:</h2>
-            <ul id="features-list"></ul>
-        </div>
-
-        <!-- Interactive Testimonials -->
-        <div class="section testimonials" id="testimonial-carousel">
-            <!-- Testimonials will be dynamically loaded -->
-        </div>
-
-        <!-- Interactive FAQ -->
-        <div class="section faq">
-            <h2>❓ Frequently Asked Questions</h2>
-            <div id="faq-container"></div>
-        </div>
+        <section class="product-section">
+            <div class="product-image">
+                <img src="windows-command-guide.png" alt="Windows Command Mastery Guide">
+            </div>
+            
+            <div class="product-details">
+                <h1>Windows Command Mastery</h1>
+                
+                <div class="price-display">
+                    <span class="current-price">£14.99</span>
+                    <span class="original-price">£24.99</span>
+                    <span class="discount-badge">40% OFF</span>
+                </div>
+                
+                <p>Unlock the full potential of your Windows PC with our comprehensive command guide. Learn 100+ powerful commands that will transform your computing experience.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h3>100+ Commands</h3>
+                        <p>Comprehensive coverage</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Beginner Friendly</h3>
+                        <p>Easy to understand</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Instant Download</h3>
+                        <p>PDF Format</p>
+                    </div>
+                </div>
+                
+                <button class="cta-button">Add to Cart</button>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Dynamic Content Loading
-        document.addEventListener('DOMContentLoaded', () => {
-            // Features List
-            const featuresList = document.getElementById('features-list');
-            const features = [
-                'Comprehensive Command Guide (100+ Commands)',
-                'Step-by-Step Instructions',
-                'Beginner to Advanced Levels',
-                'Productivity Hacks',
-                'System Troubleshooting Techniques'
-            ];
-            features.forEach(feature => {
-                const li = document.createElement('li');
-                li.textContent = feature;
-                li.style.opacity = '0';
-                li.style.transform = 'translateX(-20px)';
-                featuresList.appendChild(li);
-                
-                // Staggered Animation
-                setTimeout(() => {
-                    li.style.transition = 'all 0.5s ease';
-                    li.style.opacity = '1';
-                    li.style.transform = 'translateX(0)';
-                }, features.indexOf(feature) * 200);
-            });
+        // Interactive 3D Hover Effect
+        const productImage = document.querySelector('.product-image');
+        const productSection = document.querySelector('.product-section');
 
-            // Testimonials Carousel
-            const testimonialCarousel = document.getElementById('testimonial-carousel');
-            const testimonials = [
-                {
-                    name: 'Sarah',
-                    profession: 'Marketing Professional',
-                    quote: 'This guide transformed my computer skills overnight!'
-                },
-                {
-                    name: 'Michael',
-                    profession: 'Small Business Owner',
-                    quote: 'I save d hours of potential tech support costs!'
-                }
-            ];
-            testimonials.forEach(testimonial => {
-                const div = document.createElement('div');
-                div.className = 'testimonial';
-                div.innerHTML = `<blockquote>"${testimonial.quote}"</blockquote><p>- ${testimonial.name}, ${testimonial.profession}</p>`;
-                testimonialCarousel.appendChild(div);
-            });
+        productSection.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
 
-            // FAQ Section
-            const faqContainer = document.getElementById('faq-container');
-            const faqs = [
-                {
-                    question: 'Do I need special skills?',
-                    answer: 'Absolutely not! Our guide is designed for ALL skill levels.'
-                },
-                {
-                    question: 'Compatible with my Windows version?',
-                    answer: 'Works with Windows 10 and 11.'
-                },
-                {
-                    question: 'How do I receive the guide?',
-                    answer: 'Instant PDF download after purchase.'
-                }
-            ];
-            faqs.forEach(faq => {
-                const faqItem = document.createElement('div');
-                faqItem.className = 'faq-item';
-                faqItem.innerHTML = `<h3>${faq.question}</h3><div class="faq-answer">${faq.answer}</div>`;
-                faqItem.addEventListener('click', () => {
-                    const answer = faqItem.querySelector('.faq-answer');
-                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-                });
-                faqContainer.appendChild(faqItem);
-            });
+            const rotateX = (clientY - centerY) / 20;
+            const rotateY = -(clientX - centerX) / 20;
+
+            productImage.style.transform = `
+                rotate X(${rotateX}deg) rotateY(${rotateY}deg)
+            `;
+        });
+
+        productSection.addEventListener('mouseleave', () => {
+            productImage.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        });
+
+        // Add to Cart Functionality
+        const cartButton = document.querySelector('.cta-button');
+        cartButton.addEventListener('click', () => {
+            alert('Item added to cart!');
+            // Here you can add functionality to update the cart count or redirect to the cart page
         });
     </script>
-
-    <div class="container">
-        <div class="section pricing" id="purchase">
-            <h2>🏷️ Special Offer: £14.99</h2>
-            <p>Normally £24.99 - Save 40%!</p>
-            <a href="#" class="cta-button">Purchase Now</a>
-            <p>🔒 100% Satisfaction Guaranteed</p>
-            <p>30-Day Money-Back Guarantee</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>⚠️ Disclaimer: Educational product for responsible use.</p>
-        <p>Contact: support@windowscommandmastery.com</p>
-        <p>© 2024 Windows Command Mastery</p>
-    </footer>
 </body>
 </html>
