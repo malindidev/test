@@ -4,118 +4,289 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows Command Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0078D7;
+            --secondary-color: #00A4EF;
+            --accent-color: #FFD700;
+            --text-color: #333;
+            --background-color: #F0F4F8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            perspective: 1000px;
+        }
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
         }
+
+        /* Advanced Header */
         .header {
-            background-color: #0078D7;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            transform-style: preserve-3d;
+            transform: rotateX(10deg) scale(0.9);
+            transition: all 0.5s ease;
         }
+
+        .header:hover {
+            transform: rotateX(0) scale(1);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.1),
+                rgba(255,255,255,0.1) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0.3;
+        }
+
+        /* Animated CTA Button */
         .cta-button {
             display: inline-block;
-            background-color: #FFC300;
+            background-color: var(--accent-color);
             color: black;
             padding: 15px 30px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
         .cta-button:hover {
-            background-color: #FFD700;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
         }
-        .features, .benefits, .testimonials {
-            background-color: white;
-            margin: 20px 0;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+        /* Interactive Sections */
+        .section {
+            background: white;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(50,50,93,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .pricing {
-            background-color: #E6F2FF;
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(50,50,93,0.2);
         }
-        .faq {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-        }
-        footer {
-            text-align: center;
+
+        /* Testimonial Carousel */
+        .testimonials {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
             padding: 20px;
-            background-color: #333;
-            color: white;
+        }
+
+        .testimonial {
+            flex: 0 0 auto;
+            width: 300px;
+            margin-right: 20px;
+            scroll-snap-align: start;
+            background: #f4f4f4;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.05);
+        }
+
+        /* Interactive FAQ */
+        .faq-item {
+            cursor: pointer;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            background-color: #f4f4f4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                clip-path: none;
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>🖥️ Windows Command Mastery</h1>
-        <h2>Unlock the Secret Powers of Your Windows PC</h2>
-        <a href="#purchase" class="cta-button">Buy Now - £14.99</a>
+        <div class="header-background"></div>
+        <div class="container header-content">
+            <h1>🖥️ Windows Command Mastery</h1>
+            <h2>Unlock the Secret Powers of Your Windows PC</h2>
+            <a href="#purchase" class="cta-button">Buy Now - £14.99</a>
+        </div>
     </div>
 
-    <div class="features">
-        <h2>🔥 What You'll Get:</h2>
-        <ul>
-            <li>Comprehensive Command Guide (100+ Commands)</li>
-            <li>Step-by-Step Instructions</li>
-            <li>Beginner to Advanced Levels</li>
-            <li>Productivity Hacks</li>
-            <li>System Troubleshooting Techniques</li>
-        </ul>
+    <div class="container">
+        <!-- Interactive Features Section -->
+        <div class="section features">
+            <h2>🔥 What You'll Get:</h2>
+            <ul id="features-list"></ul>
+        </div>
+
+        <!-- Interactive Testimonials -->
+        <div class="section testimonials" id="testimonial-carousel">
+            <!-- Testimonials will be dynamically loaded -->
+        </div>
+
+        <!-- Interactive FAQ -->
+        <div class="section faq">
+            <h2>❓ Frequently Asked Questions</h2>
+            <div id="faq-container"></div>
+        </div>
     </div>
 
-    <div class="benefits">
-        <h2>💡 Why Choose Windows Command Mastery?</h2>
-        <ul>
-            <li>Boost Your Tech Skills</li>
-            <li>Save Time & Frustration</li>
-            <li>Learn Practical System Management</li>
-            <li>Become a Windows Power User</li>
-        </ul>
-    </div>
+    <script>
+        // Dynamic Content Loading
+        document.addEventListener('DOMContentLoaded', () => {
+            // Features List
+            const featuresList = document.getElementById('features-list');
+            const features = [
+                'Comprehensive Command Guide (100+ Commands)',
+                'Step-by-Step Instructions',
+                'Beginner to Advanced Levels',
+                'Productivity Hacks',
+                'System Troubleshooting Techniques'
+            ];
+            features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                li.style.opacity = '0';
+                li.style.transform = 'translateX(-20px)';
+                featuresList.appendChild(li);
+                
+                // Staggered Animation
+                setTimeout(() => {
+                    li.style.transition = 'all 0.5s ease';
+                    li.style.opacity = '1';
+                    li.style.transform = 'translateX(0)';
+                }, features.indexOf(feature) * 200);
+            });
 
-    <div class="testimonials">
-        <h2>🌟 What Our Users Say:</h2>
-        <blockquote>
-            "This guide transformed my computer skills overnight!" - Sarah, Marketing Professional
-        </blockquote>
-        <blockquote>
-            "I saved hours of potential tech support costs!" - Michael, Small Business Owner
-        </blockquote>
-    </div>
+            // Testimonials Carousel
+            const testimonialCarousel = document.getElementById('testimonial-carousel');
+            const testimonials = [
+                {
+                    name: 'Sarah',
+                    profession: 'Marketing Professional',
+                    quote: 'This guide transformed my computer skills overnight!'
+                },
+                {
+                    name: 'Michael',
+                    profession: 'Small Business Owner',
+                    quote: 'I save d hours of potential tech support costs!'
+                }
+            ];
+            testimonials.forEach(testimonial => {
+                const div = document.createElement('div');
+                div.className = 'testimonial';
+                div.innerHTML = `<blockquote>"${testimonial.quote}"</blockquote><p>- ${testimonial.name}, ${testimonial.profession}</p>`;
+                testimonialCarousel.appendChild(div);
+            });
 
-    <div class="pricing" id="purchase">
-        <h2>🏷️ Special Offer: £14.99</h2>
-        <p>Normally £24.99 - Save 40%!</p>
-        <a href="#" class="cta-button">Purchase Now</a>
-        <p>🔒 100% Satisfaction Guaranteed</p>
-        <p>30-Day Money-Back Guarantee</p>
-    </div>
+            // FAQ Section
+            const faqContainer = document.getElementById('faq-container');
+            const faqs = [
+                {
+                    question: 'Do I need special skills?',
+                    answer: 'Absolutely not! Our guide is designed for ALL skill levels.'
+                },
+                {
+                    question: 'Compatible with my Windows version?',
+                    answer: 'Works with Windows 10 and 11.'
+                },
+                {
+                    question: 'How do I receive the guide?',
+                    answer: 'Instant PDF download after purchase.'
+                }
+            ];
+            faqs.forEach(faq => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+                faqItem.innerHTML = `<h3>${faq.question}</h3><div class="faq-answer">${faq.answer}</div>`;
+                faqItem.addEventListener('click', () => {
+                    const answer = faqItem.querySelector('.faq-answer');
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                });
+                faqContainer.appendChild(faqItem);
+            });
+        });
+    </script>
 
-    <div class="faq">
-        <h2>❓ Frequently Asked Questions</h2>
-        <h3>Q: Do I need special skills?</h3>
-        <p>A: Absolutely not! Our guide is designed for ALL skill levels.</p>
-        
-        <h3>Q: Compatible with my Windows version?</h3>
-        <p>A: Works with Windows 10 and 11</p>
-        
-        <h3>Q: How do I receive the guide?</h3>
-        <p>A: Instant PDF download after purchase</p>
+    <div class="container">
+        <div class="section pricing" id="purchase">
+            <h2>🏷️ Special Offer: £14.99</h2>
+            <p>Normally £24.99 - Save 40%!</p>
+            <a href="#" class="cta-button">Purchase Now</a>
+            <p>🔒 100% Satisfaction Guaranteed</p>
+            <p>30-Day Money-Back Guarantee</p>
+        </div>
     </div>
 
     <footer>
